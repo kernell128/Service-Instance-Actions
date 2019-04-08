@@ -7,8 +7,9 @@ SAMPLE to perform STOP/START action
 """""
 
 
+
 config = oci.config.from_file(
-    '_PATH_TO_CONFIG_FILE_',
+    '___ CHANGE_ME ___',
     'DEFAULT'
 )
 
@@ -33,10 +34,11 @@ action = str(sys.argv.pop()).upper()
 print(action)
 
 my_instances = []
-find_resources = search_cloud_resources('SAS', 'GFS')
+find_resources = search_cloud_resources('ENVIRONMENT', 'DEV')
 for res in find_resources.data.items:
     print(action, 'ACTION Resource ID: {}'.format(res.identifier))
     my_instances.append(res.identifier)
 
+print(my_instances)
 for instance in my_instances:
     compute.instance_action(instance, action)
